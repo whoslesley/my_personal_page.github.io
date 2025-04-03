@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>陈瑢/Lesley's Personal Page</title>
+    <style>
+        body {
+            background-color: #001f3f;
+        }
+        #content p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="text-white">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-center mb-4">陈瑢/Lesley</h1>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button id="product-intern" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                牛马职场体验者
+            </button>
+            <button id="psychology-researcher" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                心理学研究者
+            </button>
+            <button id="debater" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                辩手
+            </button>
+            <button id="aigc-creator" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                AIGC创作者
+            </button>
+            <button id="like-button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded flex items-center">
+                <i class="fa-regular fa-thumbs-up mr-2"></i> 点赞
+            </button>
+            <div id="like-count" class="text-center mt-2"></div>
+        </div>
+        <div id="content" class="text-center">
+            <!-- 这里将显示点击按钮后的内容 -->
+        </div>
+    </div>
+
+    <script>
+        const productInternButton = document.getElementById('product-intern');
+        const psychologyResearcherButton = document.getElementById('psychology-researcher');
+        const debaterButton = document.getElementById('debater');
+        const aigcCreatorButton = document.getElementById('aigc-creator');
+        const contentDiv = document.getElementById('content');
+        const likeButton = document.getElementById('like-button');
+        const likeCountDiv = document.getElementById('like-count');
+
+        let likeCount = 0;
+
+        productInternButton.addEventListener('click', () => {
+            contentDiv.innerHTML = `<p>2025.02 - 至今 小红书·点点/主站AI用户产品实习生<br>0 - 1参与核心业务: 参与小红书AI战略从0到1落地，双线推进主站智能化升级与独立端产品迭代。<br>- 优化模型算法数据: 基于小红书内容生态及场景特性，构建数据理想态和涵盖用户行为、内容质量等维度的平台级数据指标体系，深度思考模型有效提升解决率5%，优势占比12.8%，显著提升多轮效果 24.1%。<br>产品功能设计: 针对小红书主站智能化转向需求，深度解构小红书社区生态，确立“评论区轻量渗透 + 对话页高质满足需求”的核心产品路线，成功上线「评论区@点点」、「点点对话页」和「上下文携带」等功能。</p><p>2024.10 - 2025.01 字节跳动·豆包/Cici用户产品实习生<br>0 - 1参与核心业务: 跟随组内分阶段实现产品浏览器功能大方向建构; 独立执行小功能迭代与bug优化。<br>浏览器副功能上线: 针对用户调研中发现的“书签管理效率低”问题，设计书答整理 + 分享功能，协调研发与设计团队落地，上线后该功能DAU渗透率提升7.73%，用户次日留存率提升3.2%。<br>其他浏览器副功能如网页AI总结、网页播客、网页图片翻译、AI云盘等功能埋点数据均跑正。<br>- 产品细节Polish: 为解决定位插件权限指引不清晰问题，迭代权限提示交互逻辑，简化用户操作步骤。 主导优化了newtab提示、文档分析框遮挡等关键体验问题，相关埋点数据均跑正。</p><p>2024.06 - 2024.10 Minimax·Talkie/星野用户产品实习生<br>0 - 1参与核心业务: 跟随产品发展阶段调整，完善真人项目后，转为专攻海外产品的商业化相关工作。<br>- 真人专项产品需求: 针对用户泛化需求，建立自动化生产流程实现2000 + NPC/人天。并在后续为承载泛化用户需求，设计「现实世界话题聊天」产品功能，实现人均FEEDS曝光上升6.7%，人均对话深度上升16.7%，自然增长提升7%。<br>- Talkie全球动态卡牌商业化体系搭建; 为提升静态卡牌付费率，提升ARPU值 ，建立「表层文化符号 + 深层价值适配」双轨卡牌生成链路; 设计A/B测试观测付费转化率差异; 北美地区动态卡牌付费率提升至7.1%推动GMV提升14.41%。</p><p>2023.06 - 2023.10 上海携程集团，门票活动业务部营销策略实习生<br>- 数据驱动策略设计: 为提升ROI目标，通过构建“用户 - 场景 - 触点”三维分析模型、调研竞品数据(GMV、来源)进行数据分析并可视化。根据分析结果设计“氛围货架”动态策略，基于LBS实时生成门票产品推荐。<br>- 增长策略全链路落地: 根据历史数据，为解决非节假日流量利用率低的问题，设计“周末微旅行”营销策略，激活闲时短途旅行流量，并设置动态闲时折扣系数。</p><p>2023.02 - 2023.04 上海阳狮集团·欧莱雅组广告投放实习生<br>数据处理: 通过SQL聚合小红书/抖音/百度API数据源，基于投放效果评估模型(CTR/CVR/ROI指标)进行数据处理。对欧莱雅投放结构和KOL选择进行优化，识别20%低效KOL并完成替换: 建立「影响力 - 匹配度 - 性价比」三维评估矩阵，重构KOL组合策略。<br>- 对接媒介: 帮助欧莱雅集团投放广告顺应各大平台投放逻辑，完成KOL笔记推广并提高投放效果</p>`;
+        });
+
+        psychologyResearcherButton.addEventListener('click', () => {
+            contentDiv.innerHTML = `<p>参与上海交通大学跨学科重点项目/上海市精神卫生中心临床合作项目——国内首个医学 - 传播学 - 生物学交叉的抑郁症诊断平台。</p><p>- 构建DSM - 5标准语料体系：联合40 + 位主任医师/副主任医师/研究生完成3.2万份临床对话标注，建立覆盖8大症状维度的知识图谱。</p><p>- 攻克沪语方言识别技术：基于Wav2Vec2.0构建迁移学习模型，在500小时沪语诊疗数据上实现95.2%识别准确率，覆盖上海主要方言片区。</p><p>- 参与设计患者友好型交互界面：基于Figma构建无障碍操作原型，采用语音导航 + 震动反馈双模交互，老年用户首次使用完成率提升至82%。</p>`;
+        });
+
+        debaterButton.addEventListener('click', () => {
+            contentDiv.innerHTML = `<p>2020高校大学生保险教育公益行动保险主题辩论赛天津赛区冠军</p><p>2020天津电力杯第六届高校环保辩论赛亚军</p><p>2021天津电力杯第七届高校环保辩论赛冠军决赛最佳辩手</p><p>第三届类星体杯季军</p><p>第七届天印杯网络辩论赛 季军</p><p>2024年上海市大学生国际人道问题辩论赛 季军</p><p>2024年连理杯辩论赛亚军</p><p>2024年第四届言蹊杯冠军/单场最佳辩手</p>`;
+        });
+
+        aigcCreatorButton.addEventListener('click', () => {
+            const url = 'https://www.xiaohongshu.com/user/profile/64230e6f0000000011020e7e?xsec_token=YB9y3NSpBwOZ6W4ySq7tqZTxvHA-mzXYtuBQB8NKWQAnE=&xsec_source=app_share&xhsshare=CopyLink&appuid=64230e6f0000000011020e7e&apptime=1743691427&share_id=093e834c3eb14e4195e912cf67b5ff11';
+            contentDiv.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+        });
+
+        likeButton.addEventListener('click', () => {
+            likeCount++;
+            likeCountDiv.textContent = `点赞数: ${likeCount}`;
+        });
+    </script>
+</body>
+
+</html>
+    
